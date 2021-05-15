@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newPost.entry = entry;
         newPost.id = currEntryNum
         newPost.addEventListener("click", () => {
-          setState({'page': "entry", 'num': newPost.id, 'entry': entry})
+          setState({'page': "entry", 'num': newPost.id, 'entry': entry}, false)
           // alert("test")
         });
         document.querySelector('main').appendChild(newPost);
@@ -26,15 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.getElementsByTagName("img")[0].addEventListener("click", () => {
-  setState({'page': "settings", 'num': null})
+  setState({'page': "settings"}, false)
   // alert("test")
 });
 
 document.getElementsByTagName("h1")[0].addEventListener("click", () => {
-  setState({'page': "home", 'num': null})
+  setState({'page': "home"}, false)
   // alert("test")
 });
 
 window.onpopstate = function(event) {
+  setState({'page': "entry"}, true)
   // alert(`location: ${document.location}, state: ${JSON.stringify(event.state)}`)
 }
