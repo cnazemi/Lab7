@@ -50,6 +50,8 @@ router.setState = function(state) {
 
   // 2. The entry page (showing one individual entry)
   else if (state.page == "entry") {
+    body.removeChild(document.querySelector("entry-page"));
+
     history.pushState(state, "", ("#entry" + state.num));
     // alert(state.num)
     const entryPage = document.createElement("entry-page");
@@ -57,6 +59,7 @@ router.setState = function(state) {
     
     header.innerText = ("Entry " + state.num)
     body.className = 'single-entry'
+    body.appendChild(entryPage);
     
     // alert(entryPage.entry.title)
   }
