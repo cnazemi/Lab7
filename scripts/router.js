@@ -36,9 +36,24 @@ router.setState = function(state) {
    *    2. You may modify the parameters of setState() as much as you like
    */
   //alert(state.page)
-  if (state.page == "entry") {
-    history.pushState(state, "", ("#entry" + state.num))
+
+  // Initialize the header and body of the pages
+  const header = document.querySelector(".header");
+
+  // 1. The home page
+  if (state.page == "home") {
+    history.pushState(state, "", "#home");
+  }
+
+  // 2. The entry page (showing one individual entry)
+  else if (state.page == "entry") {
+    history.pushState(state, "", ("#entry" + state.num));
     // alert(state.num)
   }
-  
+
+  // 3. The settings page
+  else if (state.page == "settings") {
+    history.pushState(state, "", "#settings");
+  }
+
 }

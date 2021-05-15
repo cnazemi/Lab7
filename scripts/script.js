@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let newPost = document.createElement('journal-entry');
         newPost.entry = entry;
         newPost.id = currEntryNum
-        newPost.addEventListener('click', () => {
+        newPost.addEventListener("click", () => {
           setState({'page': "entry", 'num': newPost.id})
           // alert("test")
         });
@@ -23,4 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       
     });
+});
+
+document.getElementsByTagName("img")[0].addEventListener("click", () => {
+  setState({'page': "settings", 'num': null})
+  // alert("test")
+});
+
+document.getElementsByTagName("h1")[0].addEventListener("click", () => {
+  setState({'page': "home", 'num': null})
+  // alert("test")
 });
