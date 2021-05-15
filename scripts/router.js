@@ -38,22 +38,36 @@ router.setState = function(state) {
   //alert(state.page)
 
   // Initialize the header and body of the pages
-  const header = document.querySelector(".header");
+  const header = document.getElementsByTagName("h1")[0];
+  const body = document.getElementsByTagName("body")[0];
 
   // 1. The home page
   if (state.page == "home") {
-    history.pushState(state, "", "#home");
+    history.pushState(state, "", window.location.origin);
+    header.innerText = "Journal Entries"
+    body.className = null
   }
 
   // 2. The entry page (showing one individual entry)
   else if (state.page == "entry") {
     history.pushState(state, "", ("#entry" + state.num));
     // alert(state.num)
+    const entryPage = document.createElement("entry-page");
+    entryPage.entry = state.entry;
+    
+    header.innerText = ("Entry " + state.num)
+    body.className = 'single-entry'
+    
+    // alert(entryPage.entry.title)
   }
 
   // 3. The settings page
   else if (state.page == "settings") {
     history.pushState(state, "", "#settings");
+    header.innerText = "Settings"
+    body.className = 'settings'
   }
 
 }
+
+

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newPost.entry = entry;
         newPost.id = currEntryNum
         newPost.addEventListener("click", () => {
-          setState({'page': "entry", 'num': newPost.id})
+          setState({'page': "entry", 'num': newPost.id, 'entry': entry})
           // alert("test")
         });
         document.querySelector('main').appendChild(newPost);
@@ -34,3 +34,7 @@ document.getElementsByTagName("h1")[0].addEventListener("click", () => {
   setState({'page': "home", 'num': null})
   // alert("test")
 });
+
+window.onpopstate = function(event) {
+  // alert(`location: ${document.location}, state: ${JSON.stringify(event.state)}`)
+}
