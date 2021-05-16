@@ -19,29 +19,28 @@ var CACHE_NAME = 'my-site-cache-v1';
 self.addEventListener('install', function(event) {
   // Perform install steps
   
-  
 });
 
-// self.addEventListener('activate', event => {
-//     event.waitUntil(clients.claim());
-//   });
+self.addEventListener('activate', event => {
+    event.waitUntil(clients.claim());
+});
 
-self.addEventListener('activate', function(event) {
+// self.addEventListener('activate', function(event) {
 
-    var cacheAllowlist = ['my-site-cache-v1'];
+//     var cacheAllowlist = ['my-site-cache-v2'];
     
-    event.waitUntil(
-      caches.keys().then(function(cacheNames) {
-        return Promise.all(
-          cacheNames.map(function(cacheName) {
-            if (cacheAllowlist.indexOf(cacheName) === -1) {
-              return caches.delete(cacheName);
-            }
-          })
-        );
-      })
-    );
-  });
+//     event.waitUntil(
+//       caches.keys().then(function(cacheNames) {
+//         return Promise.all(
+//           cacheNames.map(function(cacheName) {
+//             if (cacheAllowlist.indexOf(cacheName) === -1) {
+//               return caches.delete(cacheName);
+//             }
+//           })
+//         );
+//       })
+//     );
+//   });
 
 
 self.addEventListener('fetch', function(event) {
