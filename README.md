@@ -1,5 +1,3 @@
-# Lab7_Solution
-
 # CSE110 SP21 Lab 7
 
 ## Author(s):
