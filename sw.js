@@ -14,9 +14,7 @@ var urlsToCache = [
   './index.html',
   './settings.svg',
   './style.css',
-
   'https://cse110lab6.herokuapp.com/entries'
-
 ];
 
 self.addEventListener('install', function(event) {
