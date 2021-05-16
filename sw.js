@@ -6,25 +6,20 @@
 //   - One for fetch requests
 
 var CACHE_NAME = 'my-site-cache-v1';
-var urlsToCache = [
-  '/',
-  './index.html',
-  './style.css',
-  './scripts/script.js',
-  './scripts/router.js',
-  './components/entry-page.js',
-  './components/journal-entry.js'
-];
+// var urlsToCache = [
+//   '/',
+//   './index.html',
+//   './style.css',
+//   './scripts/script.js',
+//   './scripts/router.js',
+//   './components/entry-page.js',
+//   './components/journal-entry.js'
+// ];
 
 self.addEventListener('install', function(event) {
   // Perform install steps
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-  );
+  
+  
 });
 
 // self.addEventListener('activate', event => {
@@ -34,7 +29,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('activate', function(event) {
 
     var cacheAllowlist = ['my-site-cache-v1'];
-    event.waitUntil(clients.claim());
+    
     event.waitUntil(
       caches.keys().then(function(cacheNames) {
         return Promise.all(

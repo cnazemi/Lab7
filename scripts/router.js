@@ -44,7 +44,7 @@ router.setState = function(state, popped) {
   // 1. The home page
   
   if ((state.page == "home") || (popped == true)) {
-    history.pushState(state, "", window.location.origin);
+    history.pushState(state, "", " ");
     header.innerText = "Journal Entries";
     body.className = null;
   }
